@@ -5,8 +5,8 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Start Bootstrap </div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light" @click.prevent="goPage('/login')">Login</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light" @click.prevent="goPage('/nasa')">Nasa</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { onMounted, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 
 export default {
@@ -67,7 +67,7 @@ export default {
     const router = useRouter()
 
     const state = reactive({
-      isActive: false
+      isActive: true
     })
 
     const goPage = (link) => {
